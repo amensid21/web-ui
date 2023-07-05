@@ -1,0 +1,118 @@
+To create a registration form in a Node.js application, you can follow these steps:
+
+Step 1: Set up a new Node.js project
+
+2 Create a new directory for your project.
+
+3 Open a terminal or command prompt and navigate to the project directory.
+
+4 Initialize a new Node.js project by running the following command:
+                    
+			npm init -y
+
+Step 2: Install required dependencies
+
+ 		npm install express ejs
+
+Step 3: Create the server file
+
+	1 Inside your project directory, create a new file called 'server.js'
+2 Open 'server.js' in your preferred code editor and add the following code:
+
+
+--server.js--
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Set up EJS as the view engine
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+
+// Parse incoming request bodies
+app.use(express.urlencoded({ extended: true }));
+
+// Define routes
+app.get('/', (req, res) => {
+  res.render('registration');
+});
+
+app.post('/register', (req, res) => {
+  const { firstName, lastName, email } = req.body;
+
+  // Perform registration logic here (e.g., save to a database)
+
+  res.render('registration-success', { firstName, lastName, email });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
+
+
+
+------
+
+Step 4: Create the views
+
+1 Inside your project directory, create a new directory(folder) called 'views' outside modules folder
+2 Inside the views directory, create two new files: 
+
+		'registration.ejs' and 'registration-success.ejs'
+
+3 Open 'registration.ejs' in your code editor and add the following code:
+
+---registration.ejs--
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form action="/register" method="POST">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</body>
+</html>
+
+
+--registration-succesful.ejs--
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Success</title>
+</head>
+<body>
+  <h2>Registration Successful</h2>
+  <p>Thank you, <%= firstName %> <%= lastName %>, for registering with us!</p>
+  <p>Your email address is: <%= email %></p>
+</body>
+</html>
+
+
+Step 5: Start the server
+
+Run the following command to start the Node.js server:
+
+          node server.js
+
+After the server starts, open your browser and visit http://localhost:3000. You should see the registration form.
+
+

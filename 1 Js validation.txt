@@ -1,0 +1,178 @@
+//--create a index.html file and paste the foll code and go live --//
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+    <form>
+        <center>
+
+            <div class="form-group">
+
+            <label>First Name</label>
+
+            <input type="text" id="fname" class="form-control" >
+
+            <span id="fError" class="err"></span>
+
+            </div>
+
+<br>
+
+            <div class="form-group">
+
+            <label>Last Name</label>
+
+            <input type="text" id="lname" class="form-control"/>
+
+            <span id="lError" class="err"></span>
+
+            </div>
+
+<br>
+
+            <div class="form-group">
+
+            <label>Phone Number</label>
+
+            <input type="text" id="mno" class="form-control"/>
+
+            <span id="mError" class="err"></span>
+
+            </div>
+
+<br>
+
+            <div class="form-group">
+
+            <label>Email</label>
+
+            <input type="text" id="email" class="form-control"/>
+
+            <span id="eError" class="err"></span>
+
+            </div>
+
+<br>        
+
+           <input type="button" value="Submit" onclick="check()">
+
+
+            </center>
+            </form>
+
+
+
+
+
+            <script type="text/javascript">
+
+                 function check(){
+
+                    var fname = document.getElementById("fname").value;
+
+                    var lname = document.getElementById("lname").value;
+
+                    var mno = document.getElementById("mno").value;
+
+                    var email = document.getElementById("email").value;
+
+
+
+                   
+
+
+
+                    var fnamecheck=/^[A-Za-z]+$/;
+
+                    var lnamecheck=/^[A-Za-z]+$/;
+
+                    var mnocheck  =/^[6789][0-9]{9}$/;
+
+                    var emailcheck=/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+
+
+
+                   
+
+                        if (fnamecheck.test(fname)){
+
+                            document.getElementById("fError").innerHTML="Valid";
+
+                        }
+
+                        else{
+
+                            document.getElementById("fError").innerHTML="inValid";
+
+                            }
+
+                    
+
+                        if (lnamecheck.test(lname)){
+
+                            document.getElementById("lError").innerHTML="Valid";
+
+                            }
+
+                        else{
+
+                            document.getElementById("lError").innerHTML="Invalid";
+
+
+
+                            }
+
+
+
+                        if (mnocheck.test(mno)){
+
+                            document.getElementById("mError").innerHTML="Valid";
+
+                        }
+
+                        else{
+
+                            document.getElementById("mError").innerHTML="inValid";
+
+                            }
+
+
+
+                        if (emailcheck.test(email)){
+
+                            document.getElementById("eError").innerHTML=" Valid";
+
+                        }
+
+                        else{
+
+                            document.getElementById("eError").innerHTML=" INvalid";
+
+
+
+                            }
+
+                        }
+
+            </script>
+
+</body>
+
+</html>

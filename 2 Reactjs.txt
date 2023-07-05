@@ -1,0 +1,113 @@
+1- npx create-react-app myapp
+2- cd myapp
+3- create a new file 'Registration.js' in src folder 
+4- replace app.js and insert code in Register.js as follow
+5- npm start
+
+--app.js--
+
+import React from 'react';
+import Registration from './Registration';
+
+function App() {
+  return (
+    <div className="App">
+      <Registration />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+--Registration.js--
+
+        import React, { useState } from 'react';
+
+        const Registration = () => {
+        const [firstName, setFirstName] = useState('');
+        const [lastName, setLastName] = useState('');
+        const [mobileNumber, setMobileNumber] = useState('');
+        const [email, setEmail] = useState('');
+
+        const handleFirstNameChange = (event) => {
+            setFirstName(event.target.value);
+        };
+
+        const handleLastNameChange = (event) => {
+            setLastName(event.target.value);
+        };
+
+        const handleMobileNumberChange = (event) => {
+            setMobileNumber(event.target.value);
+        };
+
+        const handleEmailChange = (event) => {
+            setEmail(event.target.value);
+        };
+
+        const handleSubmit = (event) => {
+            event.preventDefault();
+
+            // Perform registration logic here (e.g., API call)
+
+            // Reset form fields
+            setFirstName('');
+            setLastName('');
+            setMobileNumber('');
+            setEmail('');
+        };
+
+        return (
+            <div>
+            <h2>Registration Form</h2>
+            <form onSubmit={handleSubmit}>
+                <div>
+                <label htmlFor="firstName">First Name:</label>
+                <input
+                    type="text"
+                    id="firstName"
+                    value={firstName}
+                    onChange={handleFirstNameChange}
+                    required
+                />
+                </div>
+                <div>
+                <label htmlFor="lastName">Last Name:</label>
+                <input
+                    type="text"
+                    id="lastName"
+                    value={lastName}
+                    onChange={handleLastNameChange}
+                    required
+                />
+                </div>
+                <div>
+                <label htmlFor="mobileNumber">Mobile Number:</label>
+                <input
+                    type="tel"
+                    id="mobileNumber"
+                    value={mobileNumber}
+                    onChange={handleMobileNumberChange}
+                    required
+                />
+                </div>
+                <div>
+                <label htmlFor="email">Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    required
+                />
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            </div>
+        );
+        };
+
+        export default Registration;
+

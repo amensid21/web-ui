@@ -1,0 +1,52 @@
+1  npm init -y         //creates package.json file
+2  npm install express
+3  create 'index.js' file
+4  insert code in 'index.js' 
+5  commands in terminal
+          node index.js
+          npm install nodemon
+6  npm run dev 
+    also run on port which is free n not occupied(can change manually)
+
+
+--index.js--
+
+import express from 'express'
+
+const app = express()
+const PORT = 2000;
+
+app.get('/',function(req,res){
+    res.json({
+        "message":"welcome to express js"
+    })
+})
+
+app.listen(PORT,function(){
+    console.log("My Express Server Started at "+PORT);
+})
+
+
+--package.json--
+
+{
+  "name": "expressapp",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
+
+

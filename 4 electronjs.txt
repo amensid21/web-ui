@@ -1,0 +1,75 @@
+1 create 3 files 'package.json' , 'main.js' and 'index.html'
+2 paste the foll codes in them..
+3 npm install electron --save-dev
+4 npm start
+
+
+---package.json--
+
+{
+    "name" : "Helloworld",
+    "version" : "1.0.0",
+    "main" : "main.js",
+    "devDependencies": {
+    "electron": "^24.4.0"
+    },
+    "scripts":{
+    "start": "electron ."
+    }
+    }
+
+--main.js--
+
+const { app, BrowserWindow } = require("electron");
+function createWindow()
+{
+const window1 = new BrowserWindow({
+width : 1200,
+height: 800,
+webPreferences: {
+nodeIntegration: true
+}
+});
+window1.loadFile("index.html");
+}
+app.whenReady().then(createWindow);
+
+
+--index.html--
+
+<Html>  
+    <head>   
+    <title>  
+    Registration Page  
+    </title>  
+    </head>  
+    <body bgcolor="Lightskyblue">  
+    <br>  
+    <br>  
+    <form>  
+      
+    <label> Firstname </label>         
+    <input type="text" name="firstname" size="15"/> <br> <br>  
+    
+    <label> Lastname: </label>         
+    <input type="text" name="lastname" size="15"/> <br> <br>  
+      
+    <label>
+    Phone :  
+    </label>  
+    <input type="text" name="country code"  value="+91" size="2"/>   
+    <input type="text" name="phone" size="10"/> <br> <br>  
+    
+    Email:  
+    <input type="email" id="email" name="email"/> <br>    
+    <br> <br>  
+    Password:  
+    <input type="Password" id="pass" name="pass"> <br>   
+    <br> <br>  
+    Re-type password:  
+    <input type="Password" id="repass" name="repass"> <br> <br>  
+    <input type="button" value="Submit"/>  
+    </form>  
+    </body>  
+    </html>
+
